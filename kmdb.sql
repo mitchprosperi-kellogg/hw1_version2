@@ -123,44 +123,48 @@ CREATE TABLE cast (
 --titles 
 INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('Batman Begins','PG-13','2005','Warner Bros.');
 INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('The Dark Knight','PG-13','2008','Warner Bros.');
-INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('THe Dark Knight Rises','PG-13','2012','Warner Bros.');
+INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('The Dark Knight Rises','PG-13','2012','Warner Bros.');
 
-select * from titles
+
 --cast
-INSERT INTO cast (titles_id, actor_name, character_name) 
-VALUES (1, 'Christian Bale','Bruce Wayne'),
-VALUES (1, 'Michael Caine','Alfred'),
-VALUES (1, 'Liam Neeson','Ras Al Ghul'),
-VALUES (1, 'Katie Holmes','Rachel Dawes'),
-VALUES (1, 'Gary Oldman','Comissioner Gordon'),
-VALUES (2, 'Christian Bale','Bruce Wayne'),
-VALUES (2, 'Michael Caine','Alfred'),
-VALUES (2, 'Heath Ledger','Joker'),
-VALUES (2, 'Maggie Gyllenhaal','Rachel Dawes'),
-VALUES (2, 'Gary Oldman','Comissioner Gordon'),
-VALUES (2, 'Aaron Eckhart','Harvey Dent'),
-VALUES (3, 'Christian Bale','Bruce Wayne'),
-VALUES (3, 'Michael Caine','Alfred'),
-VALUES (3, 'Tom Hardy','Bane'),
-VALUES (3, 'Anne Hathway','Selina Kyle'),
-VALUES (3, 'Gary Oldman','Comissioner Gordon'),
-VALUES (3, 'Joseph Gordon-Levitt','John Blake');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (1, 'Christian Bale','Bruce Wayne');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (1, 'Michael Caine','Alfred');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (1, 'Liam Neeson','Ras Al Ghul');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (1, 'Katie Holmes','Rachel Dawes');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (1, 'Gary Oldman','Comissioner Gordon');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Christian Bale','Bruce Wayne');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Michael Caine','Alfred');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Heath Ledger','Joker');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Maggie Gyllenhaal','Rachel Dawes');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Gary Oldman','Comissioner Gordon');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (2, 'Aaron Eckhart','Harvey Dent');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Christian Bale','Bruce Wayne');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Michael Caine','Alfred');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Tom Hardy','Bane');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Anne Hathway','Selina Kyle');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Gary Oldman','Comissioner Gordon');
+INSERT INTO cast (titles_id, actor_name, character_name) VALUES (3, 'Joseph Gordon-Levitt','John Blake');
 
-select * from cast
 -- Prints a header for the movies output
---.print "Movies"
---.print "======"
---.print ""
+.print "Titles"
+.print "======"
+.print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT
+*
+FROM titles;
 
 -- Prints a header for the cast output
---.print ""
---.print "Top Cast"
---.print "========"
---.print ""
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
 
 
 -- The SQL statement for the cast output
--- TODO!
+SELECT
+T.title_name,
+C.actor_name,
+C.character_name
+FROM titles T inner join cast C on T.id = C.titles_id;
