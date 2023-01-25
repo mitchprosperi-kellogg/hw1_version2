@@ -100,28 +100,66 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
+DROP TABLE IF EXISTS titles;
+DROP TABLE IF EXISTS cast;
 
 -- Create new tables, according to your domain model
--- TODO!
+CREATE TABLE titles (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title_name TEXT,
+  rating TEXT,
+  release_year TEXT,
+  studio TEXT
+);
 
+CREATE TABLE cast (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    titles_id INTEGER,
+    actor_name TEXT,
+    character_name TEXT
+);
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
+--titles 
+INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('Batman Begins','PG-13','2005','Warner Bros.');
+INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('The Dark Knight','PG-13','2008','Warner Bros.');
+INSERT INTO titles (title_name, rating, release_year, studio) VALUES ('THe Dark Knight Rises','PG-13','2012','Warner Bros.');
 
+select * from titles
+--cast
+INSERT INTO cast (titles_id, actor_name, character_name) 
+VALUES (1, 'Christian Bale','Bruce Wayne'),
+VALUES (1, 'Michael Caine','Alfred'),
+VALUES (1, 'Liam Neeson','Ras Al Ghul'),
+VALUES (1, 'Katie Holmes','Rachel Dawes'),
+VALUES (1, 'Gary Oldman','Comissioner Gordon'),
+VALUES (2, 'Christian Bale','Bruce Wayne'),
+VALUES (2, 'Michael Caine','Alfred'),
+VALUES (2, 'Heath Ledger','Joker'),
+VALUES (2, 'Maggie Gyllenhaal','Rachel Dawes'),
+VALUES (2, 'Gary Oldman','Comissioner Gordon'),
+VALUES (2, 'Aaron Eckhart','Harvey Dent'),
+VALUES (3, 'Christian Bale','Bruce Wayne'),
+VALUES (3, 'Michael Caine','Alfred'),
+VALUES (3, 'Tom Hardy','Bane'),
+VALUES (3, 'Anne Hathway','Selina Kyle'),
+VALUES (3, 'Gary Oldman','Comissioner Gordon'),
+VALUES (3, 'Joseph Gordon-Levitt','John Blake');
+
+select * from cast
 -- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
+--.print "Movies"
+--.print "======"
+--.print ""
 
 -- The SQL statement for the movies output
 -- TODO!
 
 -- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
+--.print ""
+--.print "Top Cast"
+--.print "========"
+--.print ""
 
 
 -- The SQL statement for the cast output
